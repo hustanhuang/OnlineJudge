@@ -1,6 +1,6 @@
 {% extends "oj_base.html" %}
 {% block title %}
-    比赛列表
+    /contest_list
 {% endblock %}
 {% block body %}
     {% load contest %}
@@ -11,8 +11,8 @@
                     <div class="right">
                         <form class="form-inline" method="get">
                             <div class="form-group-sm">
-                                <input name="keyword" class="form-control" value="{{ keyword }}" placeholder="请输入关键词">
-                                <input type="submit" value="搜索" class="btn btn-primary">
+                                <input name="keyword" class="form-control" value="{{ keyword }}" placeholder="enter the keyword">
+                                <input type="submit" value="search" class="btn btn-primary">
                             </div>
                         </form>
                     </div>
@@ -23,10 +23,10 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>比赛名称</th>
-                            <th>开始时间</th>
-                            <th>比赛类型</th>
-                            <th>状态</th>
+                            <th>contest_title</th>
+                            <th>start_time</th>
+                            <th>type</th>
+                            <th>status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -36,17 +36,17 @@
                                 <td><a href="/contest/{{ item.id }}/">{{ item.title }}</a></td>
                                 <td>{{ item.start_time }}</td>
 
-                                {% ifequal item.contest_type 0 %}
-                                    <td>私有小组赛</td>
+                                {% ifequal contest.contest_type 0 %}
+                                    <td>private group contest</td>
                                 {% endifequal %}
-                                {% ifequal item.contest_type 1 %}
-                                    <td>公开赛</td>
+                                {% ifequal contest.contest_type 1 %}
+                                    <td>public contest</td>
                                 {% endifequal %}
-                                {% ifequal item.contest_type 2 %}
-                                    <td>公开赛(密码保护)</td>
+                                {% ifequal contest.contest_type 2 %}
+                                    <td>public contest(password protected)</td>
                                 {% endifequal %}
-                                {% ifequal item.contest_type 3 %}
-                                    <td>小组邀请赛</td>
+                                {% ifequal contest.contest_type 3 %}
+                                    <td>group invitational</td>
                                 {% endifequal %}
 
                                 <td class="{{ item|contest_status_color }}">{{ item|contest_status }}</td>
@@ -62,17 +62,17 @@
                             {% if previous_page %}
                                 <li class="previous">
                                        <a href="/contests/{{ previous_page }}/{% if keyword %}?keyword={{ keyword }}{% endif %}{% if join %}?join={{ join }}{% endif %}">
-                                    <span aria-hidden="true">&larr;</span> 上一页</a></li>
+                                    <span aria-hidden="true">&larr;</span> prev</a></li>
                             {% endif %}
                             {% if next_page %}
                                 <li class="next">
-                                       <a href="/contests/{{ next_page }}/{% if keyword %}?keyword={{ keyword }}{% endif %}{% if join %}?join={{ join }}{% endif %}">下一页 <span
+                                       <a href="/contests/{{ next_page }}/{% if keyword %}?keyword={{ keyword }}{% endif %}{% if join %}?join={{ join }}{% endif %}">next <span
                                         aria-hidden="true">&rarr;</span></a></li>
                             {% endif %}
                         </ul>
                     </nav>
                     {% else %}
-                        <p>当前没有合适的比赛,你可以尝试到<a href="/groups/">小组列表</a>申请加入一些小组,以便参加小组内部的比赛</p>
+                        <p>No contest availabe.</p>
                         {% include "oj/contest/_contest_filter.html" %}
                     {% endif %}
                 </div>

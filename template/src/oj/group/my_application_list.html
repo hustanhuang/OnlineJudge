@@ -1,23 +1,23 @@
 {% extends 'oj_base.html' %}
 {% block title %}
-    我的申请列表
+    /my_application_list
 {% endblock %}
 {% block body %}
 
 <div class="container main">
     <ul class="nav nav-tabs nav-tabs-google">
         <li role="presentation">
-            <a href="/group/{{ group.id }}/">详细信息</a></li>
+            <a href="/group/{{ group.id }}/">/group</a></li>
         <li role="presentation" class="active">
-            <a href="/group/{{ group.id }}/applications/">我的申请</a></li>
+            <a href="/group/{{ group.id }}/applications/">/my_application</a></li>
     </ul>
     {% if applications %}
     <table class="table table-bordered">
         <thead>
         <tr>
             <th>#</th>
-            <th>提交时间</th>
-            <th>结果</th>
+            <th>submit_time</th>
+            <th>result</th>
         </tr>
         </thead>
         <tbody>
@@ -27,12 +27,12 @@
             <td>{{ item.create_time }}</td>
             {% if item.status %}
                 {% if item.accepted %}
-                    <td class="alert-success">通过</td>
+                    <td class="alert-success">accepted</td>
                 {% else %}
-                    <td class="alert-danger">拒绝</td>
+                    <td class="alert-danger">reject</td>
                 {% endif %}
             {% else %}
-                <td class="alert-warning">未处理</td>
+                <td class="alert-warning">waiting for review</td>
             {% endif %}
         </tr>
         {% endfor %}
@@ -40,7 +40,7 @@
         </tbody>
     </table>
     {% else %}
-    <p>你还没有申请该小组</p>
+    <p>you have never applied to join this group</p>
     {% endif %}
 </div>
 {% endblock %}

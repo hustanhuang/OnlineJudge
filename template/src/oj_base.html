@@ -26,9 +26,7 @@
 <body>
 
 
-<div id="browser-unsupported" style="display: none">人生苦短, 何必还在用这么老的浏览器~
-    当前网页 <strong>不支持</strong> 你正在使用的浏览器, 为了正常的访问,
-    请 <a href="http://browsehappy.com/">升级你的浏览器</a>。
+<div id="browser-unsupported" style="display: none">Your breowser is too old and is <strong>NOT SUPPORTED</strong>. To visit this website, please <a href="http://browsehappy.com/">update your browser</a>。
 </div>
 <script>
     if(navigator.userAgent.indexOf("MSIE") > -1){
@@ -50,12 +48,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/problems/">题目</a></li>
-                <li><a href="/submissions/">提交</a></li>
-                <li><a href="/contests/">比赛</a></li>
-                <li><a href="/groups/">小组</a></li>
-                <li><a href="/rank/">排名</a></li>
-                <li><a href="/help/">帮助</a></li>
+                <li><a href="/problems/">/problems</a></li>
+                <li><a href="/submissions/">/submissions</a></li>
+                <li><a href="/contests/">/contests</a></li>
+                <li><a href="/groups/">/groups</a></li>
+                <li><a href="/rank/">/rank</a></li>
+                <li><a href="/help/">/help</a></li>
             </ul>
             {% if request.user.is_authenticated %}
                 <ul class="nav navbar-nav navbar-right">
@@ -66,14 +64,14 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             {% if request.user.admin_type > 0 %}
-                                <li><a href="/admin/">后台管理</a></li>
+                                <li><a href="/admin/">/admin</a></li>
                                 <li role="separator" class="divider"></li>
                             {% endif %}
-                            <li><a href="/user/{{ request.user.username }}/">我的主页</a></li>
-                            <li><a href="/submissions/?my=true">我的提交</a></li>
-                            <li><a href="/account/settings/">设置</a></li>
+                            <li><a href="/user/{{ request.user.username }}/">/user/{{ request.user.username }}</a></li>
+                            <li><a href="/submissions/?my=true">/submissions</a></li>
+                            <li><a href="/account/settings/">/settings</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/logout/">退出</a></li>
+                            <li><a href="/logout/">/logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -81,7 +79,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="/login/">
-                            登录
+                            /login
                         </a>
                     </li>
                 </ul>

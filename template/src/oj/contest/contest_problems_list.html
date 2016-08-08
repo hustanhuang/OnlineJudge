@@ -1,6 +1,6 @@
 {% extends "oj_base.html" %}
 {% block title %}
-    比赛题目列表
+    /contest_problem_list
 {% endblock %}
 {% block body %}
     {% load problem %}
@@ -12,16 +12,16 @@
 
                 <ul class="nav nav-tabs nav-tabs-google">
                     <li role="presentation">
-                        <a href="/contest/{{ contest.id }}/">比赛详情</a>
+                        <a href="/contest/{{ contest.id }}/">/contest</a>
                     </li>
                     <li role="presentation" class="active">
-                        <a href="/contest/{{ contest.id }}/problems/">题目列表</a>
+                        <a href="/contest/{{ contest.id }}/problems/">/problems</a>
                     </li>
                     <li role="presentation">
-                        <a href="/contest/{{ contest.id }}/submissions/">提交</a>
+                        <a href="/contest/{{ contest.id }}/submissions/">/submissions</a>
                     </li>
                     <li role="presentation">
-                        <a href="/contest/{{ contest.id }}/rank/">排名</a>
+                        <a href="/contest/{{ contest.id }}/rank/">/rank</a>
                     </li>
                 </ul>
 
@@ -36,8 +36,8 @@
                         <tr>
                             <th></th>
                             <th>#</th>
-                            <th>题目</th>
-                            <th>通过率</th>
+                            <th>problem</th>
+                            <th>accepted_rate</th>
                         </tr>
                         </thead>
                         <tbody>

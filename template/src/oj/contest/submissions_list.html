@@ -1,6 +1,6 @@
 {% extends 'oj_base.html' %}
 {% block title %}
-    比赛提交列表
+    /contest_submissions_list
 {% endblock %}
 {% block body %}
 
@@ -10,16 +10,16 @@
         <div class="contest-tab">
             <ul class="nav nav-tabs nav-tabs-google">
                 <li role="presentation">
-                    <a href="/contest/{{ contest.id }}/">比赛详情</a>
+                    <a href="/contest/{{ contest.id }}/">/contest</a>
                 </li>
                 <li role="presentation">
-                    <a href="/contest/{{ contest.id }}/problems/">题目列表</a>
+                    <a href="/contest/{{ contest.id }}/problems/">/problems</a>
                 </li>
                 <li role="presentation" class="active">
-                    <a href="/contest/{{ contest.id }}/submissions/">提交</a>
+                    <a href="/contest/{{ contest.id }}/submissions/">/submissions</a>
                 </li>
                 <li role="presentation">
-                    <a href="/contest/{{ contest.id }}/rank/">排名</a>
+                    <a href="/contest/{{ contest.id }}/rank/">/rank</a>
                 </li>
             </ul>
         </div>
@@ -29,29 +29,29 @@
                 <thead>
             <tr>
                 <th>#</th>
-                <th>题目名称</th>
-                <th>用户</th>
-                <th>提交时间</th>
+                <th>problem</th>
+                <th>usedname</th>
+                <th>submit_time</th>
                 <th>
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle" id="languageFilter" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="true">
-                            语言<span class="caret"></span>
+                            language<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="languageFilter">
                             <li><a href="/contest/{{ contest.id }}/submissions/?language=1{% if user_id %}&user_id={{ user_id }}{% endif %}">C</a></li>
                             <li><a href="/contest/{{ contest.id }}/submissions/?language=2{% if user_id %}&user_id={{ user_id }}{% endif %}">C++</a></li>
                             <li><a href="/contest/{{ contest.id }}/submissions/?language=3{% if user_id %}&user_id={{ user_id }}{% endif %}">Java</a></li>
-                            <li><a href="/contest/{{ contest.id }}/submissions/{% if user_id %}&user_id={{ user_id }}{% endif %}">取消筛选</a></li>
+                            <li><a href="/contest/{{ contest.id }}/submissions/{% if user_id %}&user_id={{ user_id }}{% endif %}">remove the filter</a></li>
                         </ul>
                     </div>
                 </th>
-                <th>运行时间</th>
+                <th>running_time</th>
                 <th>
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle" id="resultFilter" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="true">
-                            结果<span class="caret"></span>
+                            result<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="resultFilter">
                             <li><a href="/contest/{{ contest.id }}/submissions/?result=0{% if user_id %}&user_id={{ user_id }}{% endif %}">Accepted</a></li>
@@ -61,7 +61,7 @@
                             <li><a href="/contest/{{ contest.id }}/submissions/?result=3{% if user_id %}&user_id={{ user_id }}{% endif %}">Memory Limit Exceeded</a></li>
                             <li><a href="/contest/{{ contest.id }}/submissions/?result=4{% if user_id %}&user_id={{ user_id }}{% endif %}">Compile Error</a></li>
                             <li><a href="/contest/{{ contest.id }}/submissions/?result=5{% if user_id %}&user_id={{ user_id }}{% endif %}">Format Error</a></li>
-                            <li><a href="/contest/{{ contest.id }}/submissions/{% if user_id %}&user_id={{ user_id }}{% endif %}">取消筛选</a></li>
+                            <li><a href="/contest/{{ contest.id }}/submissions/{% if user_id %}&user_id={{ user_id }}{% endif %}">remove the filter</a></li>
                         </ul>
                     </div>
                 </th>
@@ -99,7 +99,7 @@
                 {% endfor %}
                 </tbody>
             {% else %}
-                <p>本场比赛还没有提交记录</p>
+                <p>no submissions yet</p>
             {% endif %}
         </table>
 
@@ -108,14 +108,14 @@
                 {% if previous_page %}
                     <li class="previous">
                         <a href="/contest/{{ contest.id }}/submissions/{{ previous_page }}/?{% if filter %}{{ filter.name }}={{ filter.content }}&{% endif %}{% if user_id %}user_id={{ user_id }}&{% endif %}{% if problem_id %}problem_id={{ problem_id }}&{% endif %}">
-                                <span aria-hidden="true">&larr;</span> 上一页
+                                <span aria-hidden="true">&larr;</span> prev
                         </a>
                     </li>
                 {% endif %}
                 {% if next_page %}
                     <li class="next">
                         <a href="/contest/{{ contest.id }}/submissions/{{ next_page }}/?{% if filter %}{{ filter.name }}={{ filter.content }}&{% endif %}{% if user_id %}user_id={{ user_id }}&{% endif %}{% if problem_id %}problem_id={{ problem_id }}&{% endif %}">
-                            下一页 <span aria-hidden="true">&rarr;</span>
+                            next <span aria-hidden="true">&rarr;</span>
                         </a>
                     </li>
                 {% endif %}

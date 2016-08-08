@@ -1,6 +1,6 @@
 {% extends 'oj_base.html' %}
 {% block title %}
-    我的提交详情
+    /my_submission
 {% endblock %}
 {% block css_block %}
     <style>
@@ -16,19 +16,19 @@
             <li role="presentation">
                 {% if submission.contest_id %}
 
-                    <a href="/contest/{{ submission.contest_id }}/problem/{{ problem.id }}/">题目</a>
+                    <a href="/contest/{{ submission.contest_id }}/problem/{{ problem.id }}/">/problem</a>
 
                 {% else %}
-                    <a href="/problem/{{ problem.id }}/">题目</a>
+                    <a href="/problem/{{ problem.id }}/">/problem</a>
                 {% endif %}
             </li>
 
 
             <li role="presentation" class="active">
                 {% if submission.contest_id %}
-                    <a href="/contest/{{ submission.contest_id }}/problem/{{ problem.id }}/submissions/">我的提交</a>
+                    <a href="/contest/{{ submission.contest_id }}/problem/{{ problem.id }}/submissions/">/submissions</a>
                 {% else %}
-                    <a href="/problem/{{ problem.id }}/submissions/">我的提交</a>
+                    <a href="/problem/{{ problem.id }}/submissions/">/submissions</a>
                 {% endif %}
             </li>
 
@@ -36,22 +36,22 @@
         {% include "oj/problem/_problem_header.html" %}
         <div class="panel panel-default">
             <div class="panel-body">
-                <h4>运行结果: <span class="text-{{ submission.result|translate_result_class }}">
+                <h4>result = <span class="text-{{ submission.result|translate_result_class }}">
                     {{ submission.result|translate_result }}
                 </span>
                 </h4>
                 {% ifnotequal request.user.id submission.user_id %}
-                    <p>作者：{{ user.username }}</p>
+                    <p>username = {{ user.username }}</p>
                 {% endifnotequal %}
                 {% ifequal submission.result 0 %}
-                    <p>时间: {{ submission.accepted_answer_time }}ms 语言 :
+                    <p>accepted_answer_time = {{ submission.accepted_answer_time }}ms, language =
                         {{ submission.language|translate_language }}
                     </p>
                 {% endifequal %}
                 {% ifequal submission.result 4 %}
                     <pre>{{ submission.info }}</pre>
                 {% endifequal %}
-                <p>提交时间: {{ submission.create_time }}</p>
+                <p>submit_time = {{ submission.create_time }}</p>
             </div>
         </div>
         {% ifequal request.user.admin_type 2 %}
@@ -97,9 +97,9 @@
         {% if can_share %}
             <div id="share-code" class="col-lg-6 col-md-6">
                 {% if submission.shared %}
-                    <button class="btn btn-warning" id="share-code-btn">取消分享</button>
+                    <button class="btn btn-warning" id="share-code-btn">cancel</button>
                 {% else %}
-                    <button class="btn btn-primary" id="share-code-btn">分享我的代码</button>
+                    <button class="btn btn-primary" id="share-code-btn">share</button>
                 {% endif %}
                 <textarea class="form-control" id="share-code-textarea"
                           {% if not submission.shared %}style="display: none" {% endif %}>{{ problem.title }}

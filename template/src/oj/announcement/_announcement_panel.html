@@ -3,7 +3,7 @@
     <div class="panel-heading">
         <h3 class="panel-title">
             <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-            公告
+            /announcement
         </h3></div>
     <div class="panel-body">
     {% public_announcement_list as announcements %}
@@ -13,7 +13,7 @@
             </p>
             {% endfor %}
         {% else %}
-           <p>暂无可显示的公告</p>
+           <p>no announcement currently</p>
         {% endif %}
     </div>
 </div>

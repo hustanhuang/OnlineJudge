@@ -1,6 +1,6 @@
 {% extends "oj_base.html" %}
 {% block title %}
-    题目列表
+    /problem_list
 {% endblock %}
 {% block body %}
     {% load problem %}
@@ -11,8 +11,8 @@
                     <div class="right">
                         <form class="form-inline" method="get" action="/problems/">
                             <div class="form-group-sm">
-                                <input name="keyword" class="form-control" value="{{ keyword }}" placeholder="请输入关键词">
-                                <input type="submit" value="搜索" class="btn btn-primary">
+                                <input name="keyword" class="form-control" value="{{ keyword }}" placeholder="enter the keyword">
+                                <input type="submit" value="search" class="btn btn-primary">
                             </div>
                         </form>
                     </div>
@@ -23,9 +23,9 @@
                         <tr>
                             <th></th>
                             <th>#</th>
-                            <th>题目</th>
-                            <th><a href="/problems/?order_by={{ difficulty_order }}">难度</a></th>
-                            <th>通过率</th>
+                            <th>problem</th>
+                            <th><a href="/problems/?order_by={{ difficulty_order }}">difficulty</a></th>
+                            <th>accepted_rate</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -36,12 +36,12 @@
                                 <td><a href="/problem/{{ item.id }}/">{{ item.title }}</a></td>
                                 <td>
                                     {% ifequal item.difficulty 1 %}
-                                        简单
+                                        easy
                                     {% else %}
                                         {% ifequal item.difficulty 2 %}
-                                            中等
+                                            medium
                                         {% else %}
-                                            难
+                                            hard
                                         {% endifequal %}
                                     {% endifequal %}</td>
                                 <td>{{ item|accepted_radio }}</td>
@@ -54,11 +54,11 @@
                             {% if previous_page %}
                                 <li class="previous"><a
                                         href="/problems/{{ previous_page }}/{% if keyword %}?keyword={{ keyword }}{% endif %}{% if tag %}?tag={{ tag }}{% endif %}">
-                                    <span aria-hidden="true">&larr;</span> 上一页</a></li>
+                                    <span aria-hidden="true">&larr;</span> prev</a></li>
                             {% endif %}
                             {% if next_page %}
                                 <li class="next"><a
-                                        href="/problems/{{ next_page }}/{% if keyword %}?keyword={{ keyword }}{% endif %}{% if tag %}?tag={{ tag }}{% endif %}">下一页 <span
+                                        href="/problems/{{ next_page }}/{% if keyword %}?keyword={{ keyword }}{% endif %}{% if tag %}?tag={{ tag }}{% endif %}">next <span
                                         aria-hidden="true">&rarr;</span></a></li>
                             {% endif %}
                         </ul>

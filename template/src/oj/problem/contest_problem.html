@@ -6,13 +6,13 @@
     <div class="container main">
         <ul class="nav nav-tabs nav-tabs-google">
             <li role="presentation">
-                <a href="/contest/{{ problem.contest.id }}/problems/">题目列表</a>
+                <a href="/contest/{{ problem.contest.id }}/problems/">/problems</a>
             </li>
             <li role="presentation" class="active">
-                <a href="/contest/{{ problem.contest.id }}/problem/{{ problem.id }}/">题目{{ problem.sort_index }}</a>
+                <a href="/contest/{{ problem.contest.id }}/problem/{{ problem.id }}/">/problem_{{ problem.sort_index }}</a>
             </li>
             <li role="presentation">
-                <a href="/contest/{{ problem.contest.id }}/problem/{{ problem.id }}/submissions/">我的提交</a>
+                <a href="/contest/{{ problem.contest.id }}/problem/{{ problem.id }}/submissions/">/submissions</a>
             </li>
         </ul>
         {% include "oj/problem/_problem_header.html" %}
@@ -20,7 +20,7 @@
             {% include "oj/problem/_problem_main_info.html" %}
             {% if problem.hint %}
                 <div class="problem-section">
-                    <label class="problem-label">提示</label>
+                    <label class="problem-label">HINT</label>
 
                     <div class="problem-detail">{{ problem.hint|safe }}</div>
                 </div>

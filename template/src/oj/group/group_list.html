@@ -1,6 +1,6 @@
 {% extends "oj_base.html" %}
 {% block title %}
-    小组列表
+    /group_list
 {% endblock %}
 {% block body %}
     {% load problem %}
@@ -11,8 +11,8 @@
                     <div class="right">
                         <form class="form-inline" method="get">
                             <div class="form-group-sm">
-                                <input name="keyword" class="form-control" placeholder="请输入关键词">
-                                <input type="submit" value="搜索" class="btn btn-primary">
+                                <input name="keyword" class="form-control" placeholder="enter the keyword">
+                                <input type="submit" value="search" class="btn btn-primary">
                             </div>
                         </form>
                     </div>
@@ -22,10 +22,10 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>名称</th>
-                            <th>加入方式</th>
-                            <th>创建者</th>
-                            <th>创建时间</th>
+                            <th>group_name</th>
+                            <th>join_group_setting</th>
+                            <th>created_by</th>
+                            <th>create_time</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,13 +35,13 @@
                                 <td><a href="/group/{{ item.id }}/" target="_blank">{{ item.name }}</a></td>
                                 <td>
                                     {% ifequal item.join_group_setting 1 %}
-                                        需要申请
+                                        need application
                                     {% endifequal %}
                                     {% ifequal item.join_group_setting 0 %}
-                                        无需申请
+                                        free to join
                                     {% endifequal %}
                                     {% ifequal item.join_group_setting 2 %}
-                                        不允许加入
+                                        closed
                                     {% endifequal %}
                                 </td>
                                 <td>{{ item.created_by }}</td>
@@ -55,13 +55,13 @@
                             {% if previous_page %}
                                 <li class="previous"><a
                                         href="/groups/{{ previous_page }}/{% if keyword %}?keyword={{ keyword }}{% endif %}">
-                                    <span aria-hidden="true">&larr;</span> 上一页</a>
+                                    <span aria-hidden="true">&larr;</span> prev</a>
                                 </li>
                             {% endif %}
                             {% if next_page %}
                                 <li class="next">
                                     <a href="/groups/{{ next_page }}/{% if keyword %}?keyword={{ keyword }}{% endif %}">
-                                        下一页 <span aria-hidden="true">&rarr;</span>
+                                        next <span aria-hidden="true">&rarr;</span>
                                     </a>
                                 </li>
                             {% endif %}

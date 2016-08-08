@@ -6,10 +6,10 @@
     <div class="container main">
         <ul class="nav nav-tabs nav-tabs-google">
             <li role="presentation" class="active">
-                <a href="/problem/{{ problem.id }}/">题目</a>
+                <a href="/problem/{{ problem.id }}/">/problem_{{ problem.id }}</a>
             </li>
             <li role="presentation">
-                <a href="/problem/{{ problem.id }}/submissions/">我的提交</a>
+                <a href="/problem/{{ problem.id }}/submissions/">/submissions</a>
             </li>
         </ul>
         {% include "oj/problem/_problem_header.html" %}
@@ -17,16 +17,16 @@
         <div>
             {% include "oj/problem/_problem_main_info.html" %}
             <div>
-                <button type="button" id="show-more-btn" class="btn btn-default btn-sm">查看隐藏信息</button>
+                <button type="button" id="show-more-btn" class="btn btn-default btn-sm">show hint</button>
             </div>
             {% if problem.hint %}
                 <div class="problem-section hide">
-                    <label class="problem-label">提示</label>
+                    <label class="problem-label">HINT</label>
                     <div class="problem-detail">{{ problem.hint|safe }}</div>
                 </div>
             {% endif %}
             <div class="problem-section hide">
-                <label class="problem-label">标签</label>
+                <label class="problem-label">tags</label>
                 <p class="problem-detail">
                     {% for tag in problem.tags.all %}
                         <span class="label label-success">{{ tag.name }}</span>
@@ -35,7 +35,7 @@
             </div>
             {% if problem.source %}
                 <div class="problem-section hide">
-                    <label class="problem-label">来源</label>
+                    <label class="problem-label">source</label>
                     <div class="problem-detail">{{ problem.source }}</div>
                 </div>
             {% endif %}

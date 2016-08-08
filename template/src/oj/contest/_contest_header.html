@@ -8,11 +8,11 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>开始时间</th>
-            <th>结束时间</th>
-            <th>状态</th>
-            <th>比赛类型</th>
-            <th>创建者</th>
+            <th>start_time</th>
+            <th>end_time</th>
+            <th>status</th>
+            <th>type</th>
+            <th>created_by</th>
         </tr>
         </thead>
         <tbody>
@@ -21,16 +21,16 @@
             <td>{{ contest.end_time }}</td>
             <td>{{ contest|contest_status }}</td>
             {% ifequal contest.contest_type 0 %}
-                <td>私有小组赛</td>
+                <td>private group contest</td>
             {% endifequal %}
             {% ifequal contest.contest_type 1 %}
-                <td>公开赛</td>
+                <td>public contest</td>
             {% endifequal %}
             {% ifequal contest.contest_type 2 %}
-                <td>公开赛(密码保护)</td>
+                <td>public contest(password protected)</td>
             {% endifequal %}
             {% ifequal contest.contest_type 3 %}
-                <td>小组邀请赛</td>
+                <td>group invitational</td>
             {% endifequal %}
 
             <td>{{ contest.created_by.username }}</td>

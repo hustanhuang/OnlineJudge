@@ -6,17 +6,17 @@
             <table class="table table-striped">
                 {% if request.user.is_authenticated %}
 
-                    <caption>我的数据: 通过的题目数量: {{ request.user.userprofile.accepted_problem_number }}
-                        总提交数量: {{ request.user.userprofile.submission_number }}</caption>
+                    <caption>My submissions: accepted = {{ request.user.userprofile.accepted_problem_number }}
+                        total = {{ request.user.userprofile.submission_number }}</caption>
                 {% endif %}
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>用户名</th>
-                    <th>签名</th>
-                    <th>通过的题目数量</th>
-                    <th>总提交数量</th>
-                    <th>AC 率</th>
+                    <th>username</th>
+                    <th>mood</th>
+                    <th>accepted_problem_number</th>
+                    <th>submission_number</th>
+                    <th>accepted_rate</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,11 +38,11 @@
                     {% if previous_page %}
                         <li class="previous">
                             <a href="/rank/{{ previous_page }}/">
-                                <span aria-hidden="true">&larr;</span> 上一页</a></li>
+                                <span aria-hidden="true">&larr;</span> prev</a></li>
                     {% endif %}
                     {% if next_page %}
                         <li class="next">
-                            <a href="/rank/{{ next_page }}/">下一页
+                            <a href="/rank/{{ next_page }}/">next
                                 <span aria-hidden="true">&rarr;</span></a></li>
                     {% endif %}
                 </ul>

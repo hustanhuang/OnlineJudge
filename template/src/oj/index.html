@@ -3,7 +3,7 @@
 {% load website_info %}
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>{% show_website_info "website_name" %} - 首页</title>
+    <title>{% show_website_info "website_name" %}/index.html</title>
 
     <link href="/static/css/fullpage/jquery.fullPage.css" rel="stylesheet">
     <link rel="shortcut icon" href="/static/img/favicon.ico">
@@ -131,16 +131,16 @@
 <body>
 <div id="header">
     <span id="name">{% show_website_info "website_name_shortcut" %}</span>
-    <a href="/problems/">题目</a>&nbsp;&nbsp;
-    <a href="/submissions/">提交</a>&nbsp;&nbsp;
-    <a href="/contests/">比赛</a>&nbsp;&nbsp;
-    <a href="/groups/">小组</a>&nbsp;&nbsp;
-    <a href="/about/">关于</a>
+    <a href="/problems/">/problems</a>&nbsp;&nbsp;
+    <a href="/submissions/">/submissions</a>&nbsp;&nbsp;
+    <a href="/contests/">/contests</a>&nbsp;&nbsp;
+    <a href="/groups/">/groups</a>&nbsp;&nbsp;
+    <a href="/about/">/about</a>
 
     {% if not request.user.is_authenticated %}
         <div id="login">
-            <a href="/login/" class="login button">登录</a>
-            <a href="/register/" class="register button">注册</a>
+            <a href="/login/" class="login button">login</a>
+            <a href="/register/" class="register button">register</a>
         </div>
     {% endif %}
 

@@ -7,12 +7,12 @@
         <h1 class="text-center">{{ announcement.title }}</h1>
 
         <p class="text-muted text-center">
-            作者：{{ announcement.created_by }}
+            create_by = {{ announcement.created_by }}
             &nbsp;&nbsp;&nbsp;
-            创建时间：{{ announcement.create_time }}
+            create_time = {{ announcement.create_time }}
             {% ifnotequal announcement.create_time announcement.last_update_time %}
                 &nbsp;&nbsp;&nbsp;
-                最后更新：{{ announcement.last_update_time }}
+                last_update_time = {{ announcement.last_update_time }}
             {% endifnotequal %}
         </p>
 

@@ -6,17 +6,17 @@
     <div class="container main">
         <ul class="nav nav-tabs nav-tabs-google">
             <li role="presentation" class="active">
-                <a href="/contest/{{ contest.id }}/">比赛详情</a>
+                <a href="/contest/{{ contest.id }}/">/contest</a>
             </li>
             {% if show_tab %}
                 <li role="presentation">
-                    <a href="/contest/{{ contest.id }}/problems/">题目</a>
+                    <a href="/contest/{{ contest.id }}/problems/">/problems</a>
                 </li>
                 <li role="presentation">
-                    <a href="/contest/{{ contest.id }}/submissions/">提交</a>
+                    <a href="/contest/{{ contest.id }}/submissions/">/submissions</a>
                 </li>
                 <li role="presentation">
-                    <a href="/contest/{{ contest.id }}/rank/">排名</a>
+                    <a href="/contest/{{ contest.id }}/rank/">/rank</a>
                 </li>
             {% endif %}
         </ul>
@@ -24,17 +24,17 @@
         {% ifequal reason "password_protect" %}
             <div class="form-inline">
                 <div class="form-group">
-                    <label>密码</label>
-                    <input type="password" class="form-control" id="contest-password" placeholder="请输入密码">
+                    <label>password</label>
+                    <input type="password" class="form-control" id="contest-password" placeholder="enter the password please">
                 </div>
-                <button type="button" id="contest-password-btn" class="btn btn-primary">提交</button>
+                <button type="button" id="contest-password-btn" class="btn btn-primary">submit</button>
             </div>
         {% endifequal %}
         {% ifequal reason "group_limited" %}
-            <div class="alert alert-danger" role="alert">比赛仅指定小组可以参加，你不在这些小组中。</div>
+            <div class="alert alert-danger" role="alert">the contest is for specified groups only</div>
         {% endifequal %}
         {% ifequal reason "contest_not_start" %}
-            <div class="alert alert-danger" role="alert">比赛还没有开始。</div>
+            <div class="alert alert-danger" role="alert">the contest is not started yet</div>
         {% endifequal %}
     </div>
 {% endblock %}
