@@ -10,20 +10,20 @@
             </li>
         </ul>
         <div>
-            <h2 class="text-center">判题系统</h2>
-            <h4>判题结果</h4>
+            <h2 class="text-center">Judging system</h2>
+            <h4>Results</h4>
             <ul>
-                <li>Accepted: 你的答案符合判题标准</li>
-                <li>Runtime Error: 你的程序运行时出现错误（指针越界，栈溢出，有未处理的异常，主函数返回值非零等）</li>
-                <li>Time Limit Exceeded: 你的程序执行时间超出题目要求</li>
-                <li>Memory Limit Exceeded: 你的程序内存使用超出题目要求</li>
-                <li>Compile Error: 你的程序在编译（包括链接）时出现错误</li>
-                <li>Wrong Answer: 你的程序输出的答案不符合判题标准</li>
-                <li>System Error: 判题系统发生故障，请等待重判</li>
-                <li>Waiting: 你的提交正在等待处理</li>
+                <li>Accepted: Your answer is accepted</li>
+                <li>Runtime Error: Your program broke when executing (illegal pointer, stack overflow, unhandled exception or non-zero main function return value, etc.).</li>
+                <li>Time Limit Exceeded: Your program spent too much time.</li>
+                <li>Memory Limit Exceeded: Your program used too much memory.</li>
+                <li>Compile Error: Your program couldn't be compiled.</li>
+                <li>Wrong Answer: Your answer is wrong.</li>
+                <li>System Error: The judging system is broken, please wait for re-judging.</li>
+                <li>Waiting: Your answer is waiting for judging.</li>
             </ul>
 
-            <h4>编译参数</h4>
+            <h4>Compiling args</h4>
             <ul>
                 <li>C（GCC 4.8）</li>
                 <pre>gcc -DONLINE_JUDGE -O2 -w -std=c99 {src_path} -lm -o {exe_path}main</pre>
@@ -31,22 +31,22 @@
                 <pre>g++ -DONLINE_JUDGE -O2 -w -std=c++11 {src_path} -lm -o {exe_path}main</pre>
                 <li>Java（Oracle JDK 1.7）</li>
                 <pre>
-//编译
+//compile
 javac {src_path} -d {exe_path}
-//运行
+//run
 java -cp {exe_path} Main</pre>
 
             </ul>
 
-            <h2 class="text-center">常见问题</h2>
+            <h2 class="text-center">Frequent asked</h2>
             <ul>
-                <li>无特殊说明，请使用标准输入输出。</li>
-                <li>Java 代码需使用 Main 作为主类名。C/C++代码使用<code>int main()</code>，并且需要<code>return 0;</code>。</li>
-                <li>C/C++ 的64位整数类型，请使用 <code>long long</code> 声明，使用 <code>cin/cout</code> 或 <code>%lld</code> 输入输出。
-                    使用<code>__int64</code>会导致编译错误。</li>
-                <li>程序执行时间指CPU时间，占用内存按执行过程中内存消耗的峰值计，有多组测试数据时以最大的时间和内存消耗为准</li>
-                <li>判题的时候会去除你的输出的最后的换行和空格，然后与去除最后的换行和空格的答案做比较，如果不一致就是 Wrong Answer。
-                    其余的行末空格和空行不去除，看清楚题目的要求。没有格式错误。
+                <li>Use standard IO if not specified.</li>
+                <li>Use <code>int main()</code> for C/C++ code, and the program must <code>return 0;</code>.</li>
+                <li>Use  <code>long long</code> for 64-bit integers in C/C++, and use <code>cin/cout</code> or <code>%lld</code> to print them.
+                    Using <code>__int64</code> may cause Compile Error.</li>
+                <li>Running time stands for the total CPU time, and used memory is the maximum memory used.</li>
+                <li>The judging server compares your answer with the standard answer after removing the TRAILING SPACES. If they are not the same, you'll get a Wrong Answer.
+                    The spaces after lines and empty lines are NOT ignored. There aren't any Format Errors.
                 </li>
             </ul>
         </div>

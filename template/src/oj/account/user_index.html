@@ -1,6 +1,6 @@
 {% extends "oj_base.html" %}
 {% block title %}
-{{ user.username }}的主页
+{{ user.username }}'s homepage'
 {% endblock %}
 {% block body %}
     <div class="container main">
@@ -12,7 +12,7 @@
                 <h2>
                     {{ user.username }}
                     {% ifequal user.admin_type 2 %}
-                        <span class="glyphicon glyphicon-star super-admin-star" title="超级管理员"></span>
+                        <span class="glyphicon glyphicon-star super-admin-star" title="super admin"></span>
                     {% endifequal %}
                     {% ifequal user.admin_type 1 %}
                         <span class="glyphicon glyphicon-star admin-star"></span>
@@ -22,7 +22,7 @@
                 {% if user.userprofile.mood %}
                     <p id="user-mood">{{ user.userprofile.mood }}</p>
                 {% endif %}
-                
+
             </div>
             <div class="list-group col-lg-9">
                 {% if user.userprofile.school %}
@@ -62,7 +62,7 @@
                     </a>
                 </p>
                 {% endif %}
-                
+
                 <p class="list-group-item">
                     <span class="glyphicon glyphicon-calendar"></span>
                     {{ user.create_time }}
@@ -73,7 +73,7 @@
                         <strong id="user-data-number">{{ user.userprofile.rank }}</strong>
                         <span id="user-data-text">Rank</span>
                     </div>
-                    
+
                     <div class="col-lg-6 text-center">
                         <strong id="user-data-number">{{ user.userprofile.accepted_number }}</strong>
                         <span id="user-data-text">AC</span>
@@ -87,7 +87,7 @@
             </div>
         </div>
         <div class="col-lg-8">
-            
+
         </div>
     </div>
 {% endblock %}

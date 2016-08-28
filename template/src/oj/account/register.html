@@ -1,55 +1,55 @@
 {% extends "oj_base.html" %}
 {% block title %}
-    用户注册
+    Register
 {% endblock %}
 {% block body %}
     <div class="container main">
         <div class="col-md-6 col-md-offset-3">
-            <h2 class="text-center">用户注册</h2>
+            <h2 class="text-center">Register</h2>
 
             <form id="register-form">
                 <div class="form-group">
-                    <label for="username">用户名</label>
-                    <input type="text" class="form-control input-lg" id="username" name="username" placeholder="用户名" data-remote="/api/username_check/" data-remote-error="该用户名已被注册！" data-error="请填写用户名" required autofocus>
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control input-lg" id="username" name="username" placeholder="username" data-remote="/api/username_check/" data-remote-error="this username is used!" data-error="enter the username" required autofocus>
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
-                    <label for="real_name">真实姓名</label>
-                    <input type="text" class="form-control input-lg" id="real_name" name="real_name" placeholder="真实姓名" data-error="请填写姓名" required>
+                    <label for="real_name">Real name</label>
+                    <input type="text" class="form-control input-lg" id="real_name" name="real_name" placeholder="realname" data-error="enter the realname" required>
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
-                    <label for="school">学校</label>
-                    <input type="text" class="form-control input-lg" id="school" name="school" placeholder="非必填，如果你需要使用课程功能，请填写该字段">
+                    <label for="school">School</label>
+                    <input type="text" class="form-control input-lg" id="school" name="school" placeholder="not required, fill if you need to use the course function">
                 </div>
                 <div class="form-group">
-                    <label for="student_id">学号</label>
-                    <input type="number" class="form-control input-lg" id="student_id" name="student_id" placeholder="非必填，如果你需要使用课程功能，请填写该字段">
+                    <label for="student_id">Student ID</label>
+                    <input type="number" class="form-control input-lg" id="student_id" name="student_id" placeholder="not required, fill if you need to use the course function">
                 </div>
                 <div class="form-group">
-                    <label for="email">邮箱地址</label>
-                    <input type="email" class="form-control input-lg" id="email" name="email" placeholder="邮箱地址" data-remote="/api/email_check/" data-remote-error="该邮箱已被注册！" data-error="请填写正确的邮箱地址" required>
+                    <label for="email"></label>
+                    <input type="email" class="form-control input-lg" id="email" name="email" placeholder="email address" data-remote="/api/email_check/" data-remote-error="this email is used!" data-error="enter an unused email" required>
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
-                    <label for="password">密码</label>
-                    <input type="password" class="form-control input-lg" id="password" name="password" data-error="请填写密码" placeholder="密码" data-minlength="6" data-minlength-error="密码不得少于6位" required>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control input-lg" id="password" name="password" data-error="enter the password" placeholder="password" data-minlength="6" data-minlength-error="minlength = 6" required>
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
-                    <label for="confirm_password">确认密码</label>
+                    <label for="confirm_password">Confirm password</label>
                     <input type="password" class="form-control input-lg" id="confirm_password" name="confirm_password"
-                           placeholder="确认密码" data-match="#password" data-match-error="两个密码不一致" data-error="请填写确认密码" required>
+                           placeholder="confirm password" data-match="#password" data-match-error="different from the previous password" data-error="confirm your password" required>
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
-                    <label for="captcha">验证码</label>
+                    <label for="captcha">Captcha</label>
                     &nbsp;&nbsp;<img src="/captcha/" id="captcha-img"><small><p></p></small>
-                    <input type="text" class="form-control input-lg" id="captcha" name="captcha" placeholder="验证码" maxlength="4" data-error="请填写验证码" required>
+                    <input type="text" class="form-control input-lg" id="captcha" name="captcha" placeholder="captcha" maxlength="4" data-error="enter the captcha" required>
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">提交</button>
+                    <button type="submit" class="btn btn-primary">submit</button>
                 </div>
             </form>
         </div>
